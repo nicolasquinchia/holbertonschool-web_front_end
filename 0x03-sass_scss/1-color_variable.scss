@@ -1,0 +1,8 @@
+/*  Assigns the text color using a Sass variable  */
+$text-color: #3d3d3d;
+body {
+  color: $text-color;
+}
+p {
+  color: $text-color;
+}
