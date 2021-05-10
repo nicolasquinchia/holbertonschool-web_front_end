@@ -858,7 +858,7 @@ input[type='email'] {
 
 input[type='text']:focus,
 input[type='email']:focus,
-textare:focus {
+textarea:focus {
   border: 0.1rem solid var(--color-grey);
   background-color: var(--color-light-grey);
 }
