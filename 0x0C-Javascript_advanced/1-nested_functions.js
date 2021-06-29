@@ -1,6 +1,8 @@
 /**
  * Closure Scope Chain
  * Show how  the inner Lexical Environment
+ * check from the inner to the outer level
+ * until the global variables
  * @return {void}
  */
 let globalVariable = "Welcome";
