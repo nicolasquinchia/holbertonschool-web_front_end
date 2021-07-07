@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Login to the website</h1>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="email" id="email" placeholder="Email">
+    <button onclick="setCookies()">Log me in</button>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    <script>
+        function setCookies() {
+            let date = new Date();
+            date.setTime(date.getTime() + (10*24*60*60*1000));
+            let exp = date.toUTCString();
+            document.cookie = `firstname=${document.getElementById("firstname").value}; expires=`+exp;
+            document.cookie = `email=${document.getElementById("email").value}; expires=`+exp;
+        }
+        function getCookie(name) {
+            let cname =name + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookieArray = decodedCookie.split(';');
+            for(let i = 0; i < cookieArray.length; i++) {
+                let c = cookieArray[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length + 1, c.length)
+                }
+            }
+            return "";
+        }
+        function showCookies() {
+            const paragraph = document.createElement("p");
+            paragraph.innerHTML = `Email: ${getCookie('email')} - Firstname: ${getCookie('firstname')} `;
+            document.querySelector("body").append(paragraph);
+        }
+    </script>
+</body>
+
+</html>
